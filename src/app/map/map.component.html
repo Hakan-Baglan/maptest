@@ -1,1 +1,45 @@
-<div id="mapa-mapbox"></div>
+<!-- <div id="mapa-mapbox"></div> -->
+<mgl-map
+  [style]="'mapbox://styles/mapbox/streets-v9'"
+  [zoom]="[5.3]"
+  [center]="[35.872299, 38.873282]"
+  (mapClick)="mapClick($event)"
+>
+  <ng-container *ngFor="let poligon of poligonLayers; let index = index">
+    <!-- veri kaynakları -->
+    <mgl-geojson-source [id]="'oneline' + index + 1">
+      <mgl-feature [geometry]="poligon"> </mgl-feature>
+    </mgl-geojson-source>
+    <!-- Katmanlar -->
+    <mgl-layer
+      [id]="'id' + index + 1"
+      type="fill"
+      [source]="'oneline' + index + 1"
+      [layout]="{}"
+      [paint]="{
+        'fill-color': 'rgba(200, 100, 240, 0.4)',
+        'fill-outline-color': 'rgba(200, 100, 240, 1)'
+      }"
+      (layerClick)="onClick($event, index + 1)"
+    >
+    </mgl-layer>
+  </ng-container>
+
+  <mgl-popup
+    *ngIf="selectedPligon"
+    [lngLat]="selectedPligon"
+    [closeOnClick]="false"
+  >
+    <h1>{{ selectedPligonId }}. poligona tıklandı</h1>
+  </mgl-popup>
+
+  <!-- <mgl-popup
+    *ngFor="let marker of markers"
+    [lngLat]="marker"
+    [closeOnClick]="false"
+  >
+    <h1>Mağaza</h1>
+  </mgl-popup> -->
+
+  <mgl-marker  routerLink="marker"  *ngFor="let marker of markers" [lngLat]="marker"> </mgl-marker>
+</mgl-map>
