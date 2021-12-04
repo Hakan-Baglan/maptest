@@ -23,7 +23,8 @@ import { MapComponent } from './map/map.component';
     NgxMapboxGLModule.withConfig({
       accessToken: environment.mapboxKey,
     }),
-    RouterModule
+    RouterModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

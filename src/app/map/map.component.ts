@@ -18,6 +18,7 @@ export class MapComponent implements OnInit {
 
   //Markers
   markers: Mapboxgl.LngLat[] = [];
+
   constructor(private router: Router) {
     this.poligonLayers = this.generatePoligons();
     // console.log('poligon:', this.poligonLayers);
@@ -104,7 +105,7 @@ export class MapComponent implements OnInit {
     return [layer, layer2];
   }
 
-  ngOnInit(): void{  }
+  ngOnInit(): void { }
 
   onClick(e: any, witch: number) {
     this.selectedPligonId = witch;
@@ -116,7 +117,11 @@ export class MapComponent implements OnInit {
   mapClick(e: Mapboxgl.MapMouseEvent) {
     // console.log(e.lngLat);
     this.markers.push(e.lngLat);
-    this.router.navigate(['/','marker']);
+    this.router.navigate(['map', 'marker'], { queryParams: { lng: e.lngLat.lng, lat: e.lngLat.lat } });
+
+  }
+  offset(point: Mapboxgl.LngLat): Mapboxgl.LngLat {
+    return new Mapboxgl.LngLat(point.lng, point.lat + 0.1);
 
   }
 }
