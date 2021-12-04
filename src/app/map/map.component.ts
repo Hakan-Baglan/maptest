@@ -11,7 +11,6 @@ import { Router } from '@angular/router';
 })
 export class MapComponent implements OnInit {
 
-  // mapa!: Mapboxgl.Map;
   poligonLayers!: GeoJSON.GeometryObject[];
   selectedPligon!: [number, number];
   selectedPligonId!: number;
@@ -122,6 +121,5 @@ export class MapComponent implements OnInit {
   }
   offset(point: Mapboxgl.LngLat): Mapboxgl.LngLat {
     return new Mapboxgl.LngLat(point.lng, point.lat + 0.1);
-
   }
 }
