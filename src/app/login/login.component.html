@@ -1,12 +1,12 @@
-<div class="register-form">
+<!-- <div class="register-form">
     <form [formGroup]="form">
 
-        <div class="form-group">
+        <div class="form-outline mb-4">
         <label>Kullanıcı adı</label>
         <input
           type="text"
           formControlName="username"
-          class="form-control"
+          class="form-control form-control-lg"
           [ngClass]="{ 'is-invalid': submitted && f['username'].errors }"
         />
         <div *ngIf="submitted && f['username'].errors" class="invalid-feedback">
@@ -20,12 +20,12 @@
         </div>
       </div>
   
-      <div class="form-group">
+      <div class="form-outline mb-4">
         <label>Şifre</label>
         <input
           type="password"
           formControlName="password"
-          class="form-control"
+          class="form-control form-control-lg"
           [ngClass]="{ 'is-invalid': submitted && f['password'].errors }"
         />
         <div *ngIf="submitted && f['password'].errors" class="invalid-feedback">
@@ -43,4 +43,63 @@
         <button type="button" (click)="onSubmit()" class="btn btn-primary">Giriş Yap</button>
       </div>
     </form>
-  </div>
+  </div> -->
+
+  <section class="vh-100" style="background-color: #508bfc;">
+    <div class="container py-5 h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+          <div class="card shadow-2-strong" style="border-radius: 1rem;">
+            <div class="card-body p-5 text-center">
+  
+              <h3 class="mb-5">Giriş Yap</h3>
+              <form [formGroup]="form">
+
+                <div class="form-outline mb-4">
+                <input
+                  type="text"
+                  formControlName="username"
+                  class="form-control form-control-lg"
+                  placeholder="Kullanıcı adı"
+                  [ngClass]="{ 'is-invalid': submitted && f['username'].errors }"
+                />
+                <div *ngIf="submitted && f['username'].errors" class="invalid-feedback">
+                  <div *ngIf="f['username'].errors['required']">Kullanıcı adı gerekli</div>
+                  <div *ngIf="f['username'].errors['minlength']">
+                    Kullanıcı adı en az 6 karakter olmalıdır
+                  </div>
+                  <div *ngIf="f['username'].errors['maxlength']">
+                    Kullanıcı adı 20 karakteri geçmemelidir
+                  </div>
+                </div>
+              </div>
+          
+              <div class="form-outline mb-4">
+                <input
+                  type="password"
+                  formControlName="password"
+                  class="form-control form-control-lg"
+                  placeholder="Şifre"
+                  [ngClass]="{ 'is-invalid': submitted && f['password'].errors }"
+                />
+                <div *ngIf="submitted && f['password'].errors" class="invalid-feedback">
+                  <div *ngIf="f['password'].errors['required']">Şifre gereklidir</div>
+                  <div *ngIf="f['password'].errors['minlength']">
+                    Şifre en az 6 karakterden oluşmalıdır
+                  </div>
+                  <div *ngIf="f['password'].errors['maxlength']">
+                    Şifre 12 karakteri geçmemelidir
+                  </div>
+                </div>
+              </div>
+          
+              <div class="form-group">
+                <button type="button" (click)="onSubmit()" class="btn btn-primary">Giriş Yap</button>
+              </div>
+            </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>  

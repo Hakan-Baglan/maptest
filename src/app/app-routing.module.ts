@@ -12,7 +12,6 @@ const routes: Routes = [
       { path: 'marker', component: MapComponent }
     ]
   },
-  // { path: 'marker', component: MapComponent }
 ];
 
 @NgModule({
