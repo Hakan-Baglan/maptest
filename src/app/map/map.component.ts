@@ -110,15 +110,13 @@ export class MapComponent implements OnInit {
     this.selectedPligonId = witch;
     // console.log('tıklandı! ', e);
     const lngLat = e.lngLat;
-
     this.selectedPligon = [lngLat.lng, lngLat.lat];
   }
 
   mapClick(e: Mapboxgl.MapMouseEvent) {
     // console.log(e.lngLat);
     this.markers.push(e.lngLat);
-    // this.router.navigate(['map','marker']);
-    
+    this.router.navigate(['/','marker']);
 
   }
 }

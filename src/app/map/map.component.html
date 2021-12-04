@@ -3,7 +3,7 @@
   [style]="'mapbox://styles/mapbox/streets-v9'"
   [zoom]="[5.3]"
   [center]="[35.872299, 38.873282]"
-  (mapClick)="mapClick($event)"
+  (dblClick)="mapClick($event)"
 >
   <ng-container *ngFor="let poligon of poligonLayers; let index = index">
     <!-- veri kaynakları -->
@@ -33,13 +33,13 @@
     <h1>{{ selectedPligonId }}. poligona tıklandı</h1>
   </mgl-popup>
 
-  <!-- <mgl-popup
+  <mgl-popup
     *ngFor="let marker of markers"
     [lngLat]="marker"
     [closeOnClick]="false"
   >
     <h1>Mağaza</h1>
-  </mgl-popup> -->
+  </mgl-popup>
 
-  <mgl-marker  routerLink="marker"  *ngFor="let marker of markers" [lngLat]="marker"> </mgl-marker>
+  <mgl-marker *ngFor="let marker of markers" [lngLat]="marker"></mgl-marker>
 </mgl-map>

@@ -4,10 +4,10 @@ import { LoginComponent } from './login/login.component';
 import { MapComponent } from './map/map.component';
 
 const routes: Routes = [
-  {path: 'login',component: LoginComponent},
-  {path:'',redirectTo:'login',pathMatch:'full'},
-  {path: 'map', component: MapComponent}
-  
+  { path: 'login', component: LoginComponent },
+  { path: '', redirectTo: 'login', pathMatch: 'full' },
+  { path: 'map', component: MapComponent },
+  { path: 'marker', component: MapComponent }
 ];
 
 @NgModule({

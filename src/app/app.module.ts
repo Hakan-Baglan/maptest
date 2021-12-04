@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
+import { RouterModule } from '@angular/router';
 import { NgxMapboxGLModule } from 'ngx-mapbox-gl';
 import { environment } from 'src/environments/environment.prod';
 
@@ -13,7 +14,7 @@ import { MapComponent } from './map/map.component';
   declarations: [
     AppComponent,
     LoginComponent,
-    MapComponent
+    MapComponent,
   ],
   imports: [
     BrowserModule,
@@ -22,6 +23,7 @@ import { MapComponent } from './map/map.component';
     NgxMapboxGLModule.withConfig({
       accessToken: environment.mapboxKey,
     }),
+    RouterModule
   ],
   providers: [],
   bootstrap: [AppComponent]
